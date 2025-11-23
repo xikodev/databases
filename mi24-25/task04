@@ -1,0 +1,9 @@
+ρ{ Oscar nominated comedies (idMovie, movieName, NoNominations) } (
+	{ trackId, trackTitle } G {COUNT(oscarnomineeid)} (
+		track
+        ⋈ trackgenre
+        ⋈ (σ{ genreName = Comedies} (genre))
+        ⋈ movie
+        ⋈ oscarNominee
+	)
+)

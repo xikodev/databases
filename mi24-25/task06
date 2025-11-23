@@ -1,0 +1,36 @@
+FD
+
+personID -> firstName, lastName, streetNo, cityName, postalCode
+personID, insDateTime -> insAmount, insTypeID, insTypeName, insGroupID, insGroupName
+postalCode -> cityName
+insTypeID -> insTypeName, insGroupID, insGroupName
+insGroupID -> insGroupName
+
+1NF
+
+POLICY = insDateTime, personID, firstName, lastName, streetNo, cityName, postalCode, insAmount, insTypeID, insTypeName, insGroupID, insGroupName
+K = insDateTime, personID
+
+2NF
+
+PERSON1 = personID, firstName, lastName, streetNo, cityName, postalCode
+K_PERSON1 = personId
+POLICY2 = insDateTime, personID, insAmount, insTypeID, insTypeName, insGroupID, insGroupName
+K_POLICY2 = insDateTime, personID
+
+3NF
+
+PERSON2 = personID, firstName, lastName, streetNo, postalCode
+K_PERSON2 = personId
+CITY = cityName, postalCode
+K_CITY = postalCode
+INSURANCE_GROUP = insGroupID, insGroupName
+K_INSURANCE_GROUP = insGroupID
+INSURANCE_TYPE = insTypeID, insTypeName, insGroupID
+K_INSURANCE_TYPE = insTypeID
+POLICY3 = insDateTime, personID, insAmount, insTypeID
+K1_POLICY3 = insDateTime, personID
+
+Final scheme
+
+PERSON2, CITY, INSURANCE_GROUP, INSURANCE_TYPE, POLICY3

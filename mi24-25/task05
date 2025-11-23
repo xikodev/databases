@@ -1,0 +1,27 @@
+a) (2 points)
+
+AF → AF (reflexivity)
+AF → AF ˄ AF → BDE => AF → ABDEF (accumulation)
+AF → ABDEF ˄ F → BCE => AF → ABCDEF (accumulation)
+AF → ABCDEF => AF → BCDE (decomposition)
+
+b) (2 points)
+
+Does A → BCDE or F → BCDE hold?
+
+A → BCDE?
+
+A → A (reflexivity)
+
+It doesn't hold (Attribute A doesn't functionally determine BCDE).
+
+F → BCDE?
+
+F → F (reflexivity)
+F → F ˄ F → BCE => F → BCEF (accumulation)
+F → BCEF ˄ C → D => F → BCDEF (accumulation)
+F → BCDEF => F → BCDE (decomposition)
+
+FD holds!
+
+FD is partial, because F → BCDE, where F is a proper subset of AF.
