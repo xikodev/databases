@@ -1,0 +1,25 @@
+a) it must be shown TU→UVXYZ (or TU→ TUVWXYZ)
+
+TU → TU (reflexivity):
+
+TU → TU ˄ T → V => TU→ TUV (accumulation)
+TU → TUV ˄ TU → XY => TU → TUVXY (accumulation or union)
+TU → TUVXY ˄ U → ZW => TU → TUVXYZW (accumulation)
+
+TU → TUVWXYZ => TU → VWXYZ (decomposition) - can do without this step
+
+b) it must be shown that neither T → UVWXYZ nor U → TVWXYZ holds
+
+b1) We will try to prove T → UVWXYZ (or: T → TUVWXYZ)
+
+T → T (refleksivnost):
+T → T ˄ T → V => T → TV (accumulation)
+The given set of functional dependencies does not allow U to appear on the right-hand side. Therefore, T → TUWXYZ does not hold
+
+b2) We will try to prove U → TVWXYZ (or: U → TUVWXYZ )
+
+U → U (reflexivity)
+U → U ˄ U → ZW => U → UZW (accumulation)
+Due to the given functional dependencies, it is not possible to continue the accumulation. Therefore, U → TVWXYZ does not hold.
+
+Conclusion: TU functionally determines the remaining attributes of VWXYZ, and neither T nor U alone functionally determines all the remaining attributes. We conclude that TU is a possible key of the relational scheme R.

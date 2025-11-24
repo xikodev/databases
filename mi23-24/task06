@@ -1,0 +1,78 @@
+Correct answer:
+ORDER = patId, patFirstName, patLastName, patDOB, dateTimeExam, clinicId, clinicName, healthInstId, healthInstName, examTypeId, examTypeName
+The following FD are valid:
+
+patId, dateTimeExam → patFirstName, patLastName, patDOB, clinicId, clinicName, healthInstId, healthInstName, examTypeId, examTypeName,
+
+clinicId, dateTimeExam → patId, patFirstName, patLastName, patDOB, clinicName, healthInstId, healthInstName, examTypeId, examTypeName,
+
+patId → patFirstName, patLastName, patDOB
+healthInstId → healthInstName
+clinicId → clinicName, healthInstId, healthInstName
+examTypeId → examTypeName
+Normalization to 1NF
+
+ORDER = patId, patFirstName, patLastName, patDOB, dateTimeExam, clinicId, clinicName, healthInstId, healthInstName, examTypeId, examTypeName
+
+K1_ORDER = patId, dateTimeExam
+K2_ORDER = clinicId, dateTimeExam
+It is enough to write one of the two variants below.
+Variant 1
+PK = K1_ORDER = patId, dateTimeExam - - chosen as the primary key
+Normalization to 2NF
+
+PATIENT = patId, patFirstName, patLastName, patDOB
+K_PATIENT  = patId
+
+ORDER2 = patId, dateTimeExam, clinicId, clinicName, healthInstId, healthInstName, examTypeId, examTypeName
+
+K = K1_ORDER2  = patId, dateTimeExam
+K2_ORDER2 = clinicId, dateTimeExam
+Normalization to 3NF
+
+PATIENT = patId, patFirstName, patLastName, patDOB
+K_PATIENT  = patId
+
+HEALTHINST = healthInstId, healthInstName
+K1_HEALTHINST = healthInstId
+
+CLINIC = clinicId, clinicName, healthInstId
+K_CLINIC = clinicId
+
+EXAMTYPE = examTypeId, nazVrPregled
+K1_EXAMTYPE = examTypeId
+
+ORDER3 = patId, dateTimeExam, clinicId, examTypeId
+K = K1_ORDER3  = patId, dateTimeExam
+K2_ORDER3 = clinicId, dateTimeExam
+Scheme in 3NF: CLINIC, HEALTHINST, EXAMTYPE, PATIENT, ORDER3
+
+Variant 2
+PK = K2_ORDER = clinicId, dateTimeExam - chosen as the primary key
+Normalization to 2NF
+
+CLINIC = clinicId, clinicName, healthInstId, healthInstName,
+K_CLINIC = clinicId
+
+ORDER2 = patId, patFirstName, patLastName, patDOB, dateTimeExam, clinicId, examTypeId, examTypeName
+
+K1_ORDER2  = clinicId, dateTimeExam
+K = K2_ORDER2 = patId, dateTimeExam
+Normalization to 3NF
+
+CLINIC = clinicId, clinicName, healthInstId
+K_CLINIC = clinicId
+
+HEALTHINST = healthInstId, healthInstName
+K1_HEALTHINST = healthInstId
+
+EXAMTYPE = examTypeId, nazVrPregled
+K_EXAMTYPE = examTypeId
+
+PATIENT = patId, patFirstName, patLastName, patDOB
+K_PATIENT  = patId
+
+ORDER3 = patId, dateTimeExam, clinicId, examTypeId
+K1_ORDER2  = clinicId, dateTimeExam
+K = K2_ORDER2 = patId, dateTimeExam
+Scheme in 3NF: CLINIC, HEALTHINST, EXAMTYPE, PATIENT, ORDER3

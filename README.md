@@ -12,7 +12,9 @@ Faculty of Electrical Engineering and Computing
 
 ## Midterm Exams
 
-[Midterm Exam 2024/2025](mi24-25/mi24-25.md)
+[Midterm Exam 2024/2025](mi23-24/mi23-24)
+
+[Midterm Exam 2024/2025](mi23-24/mi23-24.md)
 
 ## Final Exams
 

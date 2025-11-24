@@ -1,0 +1,9 @@
+ρ{actorsMichael(codeActor, nameActor, surnameActor, nameFilm, numberNomination)} (
+    {actorId, firstName, lastName, trackTitle} G {COUNT(OscarCategoryId)} (
+        (σ{firstname='Michael'}(actor))
+        ⋈ actortrack
+        ⋈ track
+        ⋈ movie
+        *⋈ OscarNominee
+    )
+)
